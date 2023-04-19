@@ -37,7 +37,7 @@ test_pipeline = [
 # classes splits are predefined in FewShotVOCDataset
 data_root = 'data/VOCdevkit/'
 data = dict(
-    samples_per_gpu=2,
+    samples_per_gpu=1,
     workers_per_gpu=2,
     train=dict(
         type='FewShotVOCDataset',

@@ -15,10 +15,13 @@ from .base import BaseFewShotDataset
 
 # pre-defined classes split for few shot setting
 VOC_SPLIT = dict(
+    # ALL_CLASSES_SPLIT1=('aeroplane', 'bicycle', 'boat', 'bottle', 'car', 'cat',
+    #                     'chair', 'diningtable', 'dog', 'horse', 'person',
+    #                     'pottedplant', 'sheep', 'train', 'tvmonitor', 'bird',
+    #                     'bus', 'cow', 'motorbike', 'sofa'),
     ALL_CLASSES_SPLIT1=('aeroplane', 'bicycle', 'boat', 'bottle', 'car', 'cat',
-                        'chair', 'diningtable', 'dog', 'horse', 'person',
-                        'pottedplant', 'sheep', 'train', 'tvmonitor', 'bird',
-                        'bus', 'cow', 'motorbike', 'sofa'),
+                    'chair', 'diningtable', 'dog', 'horse', 'person',
+					'pottedplant', 'sheep', 'train', 'tvmonitor', '2864'),
     ALL_CLASSES_SPLIT2=('bicycle', 'bird', 'boat', 'bus', 'car', 'cat',
                         'chair', 'diningtable', 'dog', 'motorbike', 'person',
                         'pottedplant', 'sheep', 'train', 'tvmonitor',
@@ -27,7 +30,8 @@ VOC_SPLIT = dict(
                         'chair', 'cow', 'diningtable', 'dog', 'horse',
                         'person', 'pottedplant', 'train', 'tvmonitor', 'boat',
                         'cat', 'motorbike', 'sheep', 'sofa'),
-    NOVEL_CLASSES_SPLIT1=('bird', 'bus', 'cow', 'motorbike', 'sofa'),
+    # NOVEL_CLASSES_SPLIT1=('bird', 'bus', 'cow', 'motorbike', 'sofa'),
+	NOVEL_CLASSES_SPLIT1=('2864',),
     NOVEL_CLASSES_SPLIT2=('aeroplane', 'bottle', 'cow', 'horse', 'sofa'),
     NOVEL_CLASSES_SPLIT3=('boat', 'cat', 'motorbike', 'sheep', 'sofa'),
     BASE_CLASSES_SPLIT1=('aeroplane', 'bicycle', 'boat', 'bottle', 'car',
@@ -175,8 +179,7 @@ class FewShotVOCDataset(BaseFewShotDataset):
         """
         ann_shot_filter = {}
         if self.num_novel_shots is not None:
-            for class_name in self.SPLIT[
-                    f'NOVEL_CLASSES_SPLIT{self.split_id}']:
+            for class_name in self.SPLIT[f'NOVEL_CLASSES_SPLIT{self.split_id}']:
                 ann_shot_filter[class_name] = self.num_novel_shots
         if self.num_base_shots is not None:
             for class_name in self.SPLIT[f'BASE_CLASSES_SPLIT{self.split_id}']:

@@ -6,6 +6,8 @@ _base_ = [
 # classes splits are predefined in FewShotVOCDataset
 # FewShotVOCDefaultDataset predefine ann_cfg for model reproducibility.
 data = dict(
+    samples_per_gpu=1,
+    workers_per_gpu=2,
     train=dict(
         type='FewShotVOCDefaultDataset',
         ann_cfg=[dict(method='FSCE', setting='SPLIT1_10SHOT')],
@@ -24,5 +26,6 @@ runner = dict(max_iters=15000)
 # base model needs to be initialized with following script:
 #   tools/detection/misc/initialize_bbox_head.py
 # please refer to configs/detection/fsce/README.md for more details.
+work_dir = './work_dirs/fsce_r101_fpn_voc-split1_10shot-fine-tuning'
 load_from = ('work_dirs/fsce_r101_fpn_voc-split1_base-training/'
              'base_model_random_init_bbox_head.pth')

@@ -202,6 +202,7 @@ def main():
     model = build_detector(cfg.model, logger=logger)
     # build_dataset will do two things, including building dataset
     # and saving dataset into json file (optional).
+    # breakpoint()
     datasets = [
         build_dataset(
             cfg.data.train,

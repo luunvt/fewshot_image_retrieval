@@ -94,8 +94,8 @@ LVIS_ALL_CLASSES = sorted(LVIS_BASE_CLASSES + LVIS_NOVEL_CLASSES)
 LVIS_IDMAP = {v: i for i, v in enumerate(LVIS_ALL_CLASSES)}
 LVIS_TAR_SIZE = 1230
 # VOC config
-VOC_TAR_SIZE = 20
-
+VOC_TAR_SIZE = 16
+# CUSTOM_TAR_SIZE = 16
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -255,6 +255,8 @@ def main():
     else:
         TAR_SIZE = VOC_TAR_SIZE
 
+    TAR_SIZE = 16
+
     if args.method == 'remove':
         # Remove parameters
         for param_name in args.param_name:
@@ -287,3 +289,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# python -m tools.detection.misc.initialize_bbox_head \
+#     --src1 work_dirs/tfa_r101_fpn_voc-split1_base-training/tfa_r101_fpn_voc-split1_base-training_20211031_114821-efbd13e9.pth \
+#     --method random_init \
+#     --save-dir work_dirs/tfa_r101_fpn_voc-split1_2shot-16head_papasan_fine-tuning

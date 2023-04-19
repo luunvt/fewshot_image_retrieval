@@ -28,6 +28,7 @@ def build_dataset(cfg: ConfigDict,
                   work_dir: Optional[str] = None,
                   timestamp: Optional[str] = None) -> Dataset:
     # If save_dataset is set to True, dataset will be saved into json.
+    # breakpoint()
     save_dataset = cfg.pop('save_dataset', False)
 
     if isinstance(cfg, (list, tuple)):

@@ -45,6 +45,7 @@ def init_detector(config: Union[str, mmcv.Config],
         config.merge_from_dict(cfg_options)
     config.model.pretrained = None
     config.model.train_cfg = None
+    config.model.pop("frozen_parameters", None)
     model = build_detector(config.model, test_cfg=config.get('test_cfg'))
     if checkpoint is not None:
         map_loc = 'cpu' if device == 'cpu' else None

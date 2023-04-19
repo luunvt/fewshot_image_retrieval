@@ -8,4 +8,4 @@ lr_config = dict(
     warmup_iters=500,
     warmup_ratio=0.001,
     step=[60000, 80000])
-runner = dict(type='IterBasedRunner', max_iters=90000)
+runner = dict(type='IterBasedRunner', max_iters=5000)

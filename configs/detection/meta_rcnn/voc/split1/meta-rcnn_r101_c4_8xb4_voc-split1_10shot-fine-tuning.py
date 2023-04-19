@@ -25,8 +25,9 @@ optimizer = dict(lr=0.001)
 lr_config = dict(warmup=None)
 runner = dict(max_iters=1000)
 # load_from = 'path of base training model'
+work_dir = './work_dirs/meta-rcnn_r101_c4_8xb4_voc-split1_10shot-fine-tuning'
 load_from = \
-    'work_dirs/meta-rcnn_r101_c4_8xb4_voc-split1_base-training/latest.pth'
+    'work_dirs/meta-rcnn_r101_c4_8xb4_voc-split1_base-training/meta-rcnn_r101_c4_8xb4_voc-split1_base-training_20211101_234042-7184a596.pth'
 # model settings
 model = dict(frozen_parameters=[
     'backbone', 'shared_head', 'rpn_head', 'aggregation_layer'

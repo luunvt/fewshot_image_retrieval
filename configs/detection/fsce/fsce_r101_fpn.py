@@ -8,7 +8,7 @@ model = dict(
         bbox_head=dict(
             type='CosineSimBBoxHead',
             num_shared_fcs=2,
-            num_classes=20,
+            num_classes=16,
             scale=20)),
     train_cfg=dict(
         rpn_proposal=dict(max_per_img=2000),

@@ -23,5 +23,5 @@ optimizer = dict(
     lr=0.005,
     paramwise_cfg=dict(
         custom_keys=dict({'.bias': dict(lr_mult=2.0, decay_mult=0.0)})))
-runner = dict(max_iters=36000)
+runner = dict(max_iters=1000)
 model = dict(roi_head=dict(bbox_head=dict(num_classes=15)))

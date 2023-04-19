@@ -31,8 +31,8 @@ class NWayKShotDataloader:
 
     def __next__(self) -> Dict:
         # call query and support iterator
-        query_data = self.query_iter.next()
-        support_data = self.support_iter.next()
+        query_data = next(self.query_iter)
+        support_data = next(self.support_iter)
         return {'query_data': query_data, 'support_data': support_data}
 
     def __len__(self) -> int:

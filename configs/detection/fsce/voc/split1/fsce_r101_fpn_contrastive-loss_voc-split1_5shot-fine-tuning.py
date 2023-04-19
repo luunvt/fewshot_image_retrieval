@@ -36,5 +36,5 @@ model = dict(
 # base model needs to be initialized with following script:
 #   tools/detection/misc/initialize_bbox_head.py
 # please refer to configs/detection/fsce/README.md for more details.
-load_from = ('work_dirs/fsce_r101_fpn_voc-split1_base-training/'
-             'base_model_random_init_bbox_head.pth')
+load_from = ('work_dirs/base_model/'
+             'faster_rcnn_16head.pth')
