@@ -21,7 +21,7 @@ evaluation = dict(
 checkpoint_config = dict(interval=4500)
 optimizer = dict(lr=0.001)
 lr_config = dict(warmup_iters=200, gamma=0.5, step=[5000, 7000])
-runner = dict(max_iters=9000)
+runner = dict(max_iters=4500)
 custom_hooks = [
     dict(
         type='ContrastiveLossDecayHook',

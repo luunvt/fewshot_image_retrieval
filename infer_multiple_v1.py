@@ -11,18 +11,18 @@ import numpy as np
 THR = 0.5
 THR_NMS = 0.3
 # Specify the path to model config and checkpoint file
-config_file = '/home/BI/luunvt/image_retrieval/mmfewshot/work_dirs/pipeline_v2/fine_tune_0/door_newbbox/fsce_r101_fpn_contrastive-loss_voc-split1_5shot-fine-tuning/fsce_r101_fpn_contrastive-loss_voc-split1_5shot-fine-tuning.py'
-checkpoint_file = '/home/BI/luunvt/image_retrieval/mmfewshot/work_dirs/pipeline_v2/fine_tune_0/door_newbbox/fsce_r101_fpn_contrastive-loss_voc-split1_5shot-fine-tuning/iter_4500.pth'
+config_file = '/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/work_dirs/meta-rcnn/3264/meta-rcnn_r50_c4_8xb4_voc-split1_5shot-fine-tuning.py'
+checkpoint_file = '/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/work_dirs/meta-rcnn/3264/iter_800.pth'
 
 # build the model from a config file and a checkpoint file
 model = init_detector(config_file, checkpoint_file, device='cuda:0')
 
-img_path = "/home/BI/luunvt/image_retrieval/data/img/door"
-cat = "door"
+img_path = "/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/data/3264/3264"
+cat = "3264"
 # breakpoint()
 num_iter = int(checkpoint_file.split("/")[-1].split(".")[0].split("_")[1])
-folder_name = f"{cat}_new_bbox_{num_iter}iter_thr{str(int(THR*100))}_nms{str(int(THR_NMS*100))}"
-save_path = "/home/BI/luunvt/image_retrieval/mmfewshot/result/pipeline_v2/fine_tune_0_v2/"
+folder_name = f"{cat}_maxarea_bbox_{num_iter}iter_thr{str(int(THR*100))}_nms{str(int(THR_NMS*100))}"
+save_path = "/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/result/pipeline_v4/meta-rcnn/"
 
 include_path = os.path.join(save_path, folder_name, "include")
 if not os.path.exists(include_path):
@@ -45,6 +45,7 @@ def nms(boxes):
 for im_name in tqdm(os.listdir(img_path)):
   img = os.path.join(img_path, im_name)
   st = time.time()
+  breakpoint()
   try:
     result = inference_detector(model, img)
   except:

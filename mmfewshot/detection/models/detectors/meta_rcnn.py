@@ -125,6 +125,7 @@ class MetaRCNN(QuerySupportDetector):
 
     def model_init(self):
         """process the saved support features for model initialization."""
+        # breakpoint()
         gt_labels = torch.cat(self._forward_saved_support_dict['gt_labels'])
         roi_feats = torch.cat(self._forward_saved_support_dict['roi_feats'])
         class_ids = set(gt_labels.data.tolist())
@@ -164,6 +165,7 @@ class MetaRCNN(QuerySupportDetector):
         """
         assert self.with_bbox, 'Bbox head must be implemented.'
         assert len(img_metas) == 1, 'Only support single image inference.'
+        # breakpoint()
         if not self.is_model_init:
             # process the saved support features
             self.model_init()

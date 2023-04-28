@@ -3,9 +3,9 @@
 
 Example:
     python demo/demo_attention_rpn_detector_inference.py \
-        ./demo/demo_detection_images/query_images/demo_query.jpg
-        configs/detection/attention_rpn/coco/attention-rpn_r50_c4_4xb2_coco_base-training.py
-        ./work_dirs/attention-rpn_r50_c4_4xb2_coco-base-training/latest.pth
+        /home/tanluuuuuuu/Desktop/luunvt/image_retrieval/data/img/door/B00AQ0NYWA.jpg \
+        /home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/work_dirs/door_attention-rpn_5shot-fine-tuning/door_attention-rpn_5shot-fine-tuning.py \
+        /home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/work_dirs/door_attention-rpn_5shot-fine-tuning/iter_1200.pth
 """  # nowq
 
 import os

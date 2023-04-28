@@ -6,19 +6,17 @@ import torchvision
 import cv2
 
 # Specify the path to model config and checkpoint file
-config_file = '/home/BI/luunvt/image_retrieval/mmfewshot/work_dirs/pipeline_v2/fine_tune_2/3190/fsce_r101_fpn_contrastive-loss_voc-split1_5shot-fine-tuning.py'
-checkpoint_file = '/home/BI/luunvt/image_retrieval/mmfewshot/work_dirs/pipeline_v2/fine_tune_2/3190/iter_4500.pth'
+config_file = '/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/work_dirs/meta-rcnn_r101_c4_8xb4_voc-split1_5shot-fine-tuning/meta-rcnn_r101_c4_8xb4_voc-split1_5shot-fine-tuning.py'
+checkpoint_file = '/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/work_dirs/meta-rcnn_r101_c4_8xb4_voc-split1_5shot-fine-tuning/iter_800.pth'
 
 # build the model from a config file and a checkpoint file
 model = init_detector(config_file, checkpoint_file, device='cuda:0')
 
 # test a single image and show the results
-img = '/home/BI/luunvt/image_retrieval/mmfewshot/result/pipeline_v2/fine_tune_2/3190_4500iter_thr0_nms20/exclude/B0BMGPCL34.jpg'  
+img = '/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/data/img/focus_door/B093LV6YZB.jpg'  
 # or img = mmcv.imread(img), which will only load it once
 output = inference_detector(model, img)
 result = output
-for x in result[-1]:
-    print(x[-1])
 
 # boxes = torch.tensor(output[-1][:, :4]).squeeze()
 # conf = torch.tensor(output[-1][:, 4:]).squeeze()
