@@ -24,7 +24,7 @@ In summary, few shot learning focus on two aspects:
   mim install "mmdet==2.25.0"
 
   git clone https://github.com/...
-  cd mmfewshot
+  cd fewshot_image_retrieval
   pip install -r requirements/build.txt
   pip install -v -e .
   pip install numpy==1.20
