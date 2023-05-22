@@ -9,6 +9,7 @@ from mmdet.apis import show_result_pyplot
 
 from mmfewshot.detection.apis import (inference_detector, init_detector,
                                       process_support_images)
+import cv2
 
 
 def parse_args():
@@ -20,12 +21,12 @@ def parse_args():
 
 def main(args):
     # build the model from a config file and a checkpoint file
-    img = "/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/result/attention_rpn/door_20thr__attention_rpn/exclude/B0BQBZR9GB.jpg"
-    config = "/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/work_dirs/door_attention-rpn_5shot-fine-tuning/door_attention-rpn_5shot-fine-tuning.py"
-    checkpoint = "/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/work_dirs/door_attention-rpn_5shot-fine-tuning/iter_1200.pth"
+    img = "/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/data/3963/3963/B0B81DF77L.jpg"
+    config = "/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/work_dirs/pipeline_fewshot_retrieval/3963/attention-rpn_r50_c4_voc-split1_5shot-fine-tuning.py"
+    checkpoint = "/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/work_dirs/pipeline_fewshot_retrieval/3963/iter_1200.pth"
     support_images_dir = '/home/tanluuuuuuu/Desktop/luunvt/image_retrieval/mmfewshot/demo/demo_detection_images/support_images'
     device = 'cuda:0'
-    score_thr = 0
+    score_thr = 0.1
     model = init_detector(config, checkpoint, device=device)
 
     # prepare support images, each demo image only contain one instance
@@ -43,6 +44,14 @@ def main(args):
     print(result)
     # show the results
     show_result_pyplot(model, img, result, score_thr=score_thr)
+    # img = cv2.imread(img)
+    # print(img.shape)
+    # for box in result[0]:
+    #   if box[-1] >= score_thr:
+    #     box = list(map(int, box))
+    #     print(box)
+    #     cropped = img[box[1]:box[3], box[0]:box[2]]
+    #     cv2.imwrite("001.png", cropped)
 
 
 if __name__ == '__main__':
