@@ -27,7 +27,6 @@ In summary, few shot learning focus on two aspects:
   cd fewshot_image_retrieval
   pip install -r requirements/build.txt
   pip install -v -e .
-  pip install numpy==1.20
 ```
     
 ## Training
