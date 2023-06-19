@@ -42,4 +42,6 @@ CUDA_VISIBLE_DEVICES=0 python tools/detection/train.py configs/detection/attenti
 ```
 
 ## Inference
-Check folder `inference`
+```bash
+CUDA_VISIBLE_DEVICES=0 python inference/infer_single.py --config <config path> --checkpoint <checkpoint path> --img <image path> --output <output path>
+```
