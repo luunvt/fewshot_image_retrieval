@@ -11,6 +11,8 @@ In summary, few shot learning focus on two aspects:
 
 
 ## Installation
+Requires:
+cuda - 11.8
 
 ```bash
   conda create -n mmfewshot_test python=3.8.10 -y
