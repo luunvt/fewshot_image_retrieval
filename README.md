@@ -23,7 +23,7 @@ In summary, few shot learning focus on two aspects:
   mim install mmcls
   mim install "mmdet==2.25.0"
 
-  git clone https://github.com/...
+  git clone git@github.com:luunvt/fewshot_image_retrieval.git
   cd fewshot_image_retrieval
   pip install -r requirements/build.txt
   pip install -v -e .
@@ -34,5 +34,12 @@ In summary, few shot learning focus on two aspects:
 ```bash
 wget https://download.openmmlab.com/mmfewshot/detection/attention_rpn/voc/split1/attention-rpn_r50_c4_voc-split1_base-training_20211101_003606-58a8f413.pth
 ```
+2. Edit categories in `./mmfewshot/detection/datasets/voc.py`
+3. Add image to path
+4. Train
+```bash
+CUDA_VISIBLE_DEVICES=0 python tools/detection/train.py configs/detection/attention_rpn/voc/split1/attention-rpn_r50_c4_voc-split1_5shot-fine-tuning.py --no-validate
+```
 
 ## Inference
+Check folder `inference`
